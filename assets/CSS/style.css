@@ -165,3 +165,74 @@ footer {
   .questionNumber{
     text-align: center;
   }
+
+  /* CSS FEEDBACK */
+  
+  .valutazione{
+    margin-bottom: 2em;
+}
+
+.ratings {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    direction: rtl;
+    text-align: center;
+  }
+  
+  .star {
+    position: relative;
+    line-height: 60px;
+    display: inline-block;
+    transition: color 0.2s ease;
+    color: #777474;
+    cursor: pointer;
+  }
+  
+  .star:before {
+    content: '\2605';
+    width: 60px;
+    height: 60px;
+    font-size: 60px;
+  }
+  
+  .star:hover,
+  .star.selected,
+  .star:hover ~ .star,
+  .star.selected ~ .star{
+    transition: color 0.4s ease;
+    color: #00FFFF;
+  }
+
+  
+.feed{
+    text-align: center;
+}
+
+#feed{
+    border: none; 
+    background-color: transparent; 
+    border-bottom: 3px solid purple; 
+    padding: 10px; 
+    width: 50em;
+    color: white;
+   
+}
+
+#feed:focus{
+    outline: none;
+}
+#proceed {
+    margin-top: 3em;
+    cursor: pointer;
+    padding: 1em 4em;
+    font-size: large;
+    font-weight: bold;
+    background-color: #00ffff;
+    border: 0px;
+    -webkit-box-shadow: 0px 0px 40px 0px #00ffff;
+    -moz-box-shadow: 0px 0px 40px 0px #00ffff;
+    -o-box-shadow: 0px 0px 40px 0px #00ffff;
+    box-shadow: 0px 0px 40px 0px #00ffff;
+  }
