@@ -73,6 +73,7 @@ label #mark {
     position: absolute;
     left: 1em;
     margin-top: 2%;
+    top: -1em;
 }
 
 label input:checked+#mark {
