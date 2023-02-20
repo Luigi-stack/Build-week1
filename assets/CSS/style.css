@@ -106,6 +106,7 @@ label input:checked+#mark {
     box-shadow: 0px 0px 50px 0px #00ffff;
 }
 
+
 #proceed:hover {
     -webkit-box-shadow: 0px 0px 60px 0px #00ffff;
     -moz-box-shadow: 0px 0px 60px 0px #00ffff;
