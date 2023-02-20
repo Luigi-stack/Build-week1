@@ -1,0 +1,123 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;300;500;700&family=Outfit:wght@300;400;800&display=swap');
+
+body {
+    margin: 0, auto;
+    padding: 0;
+    box-sizing: border-box;
+    background-image: url('../files/bg.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
+    color: white;
+    font-family: 'Outfit', sans-serif;
+}
+
+header {
+    margin-left: 3em;
+    margin-top: 3em;
+}
+
+#container {
+    width: 90%;
+    margin: 3em;
+}
+
+img {
+    width: 10em;
+}
+
+h1 {
+    font-family: "Outfit", sans-serif;
+    font-weight: 300;
+    font-size: 60px;
+}
+
+#subtitle {
+    font-weight: 800;
+}
+
+h2 {
+    color: #d20094;
+    font-family: "Inter", sans-serif;
+    font-weight: 700;
+    font-size: 25px;
+}
+
+#checkboxFooter {
+    margin: 4em auto;
+    background-color: transparent;
+}
+
+input {
+    opacity: 0;
+    position: relative;
+    right: 1em;
+    vertical-align: middle;
+}
+
+label {
+    padding-left: 30px;
+    margin-top: 50px;
+    position: relative;
+    cursor: pointer;
+    user-select: none;
+}
+
+label #mark {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background-color: rgba(0, 0, 0, 0);
+    border: 2px solid white;
+    position: absolute;
+    left: 1em;
+    margin-top: 2%;
+}
+
+label input:checked+#mark {
+    left: 20px;
+    top: 1;
+    width: 8px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    -webkit-transform: rotate(35deg);
+    -ms-transform: rotate(35deg);
+    transform: rotate(35deg);
+}
+
+#button {
+    display: inline-block;
+    margin-left: 15em;
+}
+
+#proceed {
+    cursor: pointer;
+    padding: 1em 4em;
+    font-size: large;
+    font-weight: bold;
+    background-color: #00ffff;
+    border: 0px;
+    -webkit-box-shadow: 0px 0px 50px 0px #00ffff;
+    -moz-box-shadow: 0px 0px 50px 0px #00ffff;
+    -o-box-shadow: 0px 0px 50px 0px #00ffff;
+    box-shadow: 0px 0px 50px 0px #00ffff;
+}
+
+#proceed:hover {
+    -webkit-box-shadow: 0px 0px 60px 0px #00ffff;
+    -moz-box-shadow: 0px 0px 60px 0px #00ffff;
+    -o-box-shadow: 0px 0px 60px 0px #00ffff;
+    box-shadow: 0px 0px 60px 0px #00ffff;
+    background-color: #00ffffd3;
+}
+
+span {
+    font-weight: bold;
+}
+
+footer {
+    list-style-position: inside;
+    padding-left: 0;
+  }
