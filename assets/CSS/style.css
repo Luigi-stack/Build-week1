@@ -365,9 +365,8 @@ footer {
   letter-spacing: 2px;
   font-weight: bold;
   font-size: 14px;
-position: relative;
-bottom: 4em;
-
+  position: relative;
+  bottom: 4em;
 }
 
 #pink {
