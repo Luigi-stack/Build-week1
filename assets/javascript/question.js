@@ -252,7 +252,7 @@ document.querySelector("#answers").addEventListener("click", (event) => {
         questionCounter++;
         counter.innerText = `${questionCounter}`;
     } else {
-        return window.location.assign(`../../PaginaRisultato${score}`);
+        return window.location.assign(`../../Results03.html?result=${score}`);
     }
     return score;
 });
