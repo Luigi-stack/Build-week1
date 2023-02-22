@@ -49,8 +49,8 @@ var data = {
 };
 
 var ctx = document.getElementById("pieChart").getContext("2d");
-ctx.canvas.width = 270;
-ctx.canvas.height = 270;
+ctx.canvas.width = 350;
+ctx.canvas.height = 350;
 ctx.canvas.border = 1;
 
 var pieChart = new Chart(ctx, {
@@ -78,11 +78,11 @@ var pieChart = new Chart(ctx, {
 window.onload = function() {};
 
 if (numeroSuccessi > 5) {
-    document.getElementById("inside_canvas").innerHTML = `<p class="p1">Congratulations!</p>
+    document.getElementById("inside_canvas").innerHTML = `<div class="congatWrong"> <p class="p1">Congratulations!</p>
     <p class="p2correct">You passed the exam.</p>
-    <p class="p3">We'll send you the certificate in few minutes. Check your email (including promotions / spam folder)</p>`;
+    <p class="p3">We'll send you the certificate in few minutes. <br> Check your email (including promotions / spam folder)</p> </div>`;
 } else {
-    document.getElementById("inside_canvas").innerHTML = `<p class="p1">We are sorry!</p>
+    document.getElementById("inside_canvas").innerHTML = `<div class="congatWrong"> <p class="p1">We are sorry!</p>
       <p class="p2wrong">You didn't passed the exam.</p>
-      <p class="p3">We'll send you the certificate of death in few minutes. Check your heaven mail (including promotions / spam folder)</p>`;
+      <p class="p3">We'll send you the certificate of death in few minutes. <br>Check your heaven mail (including promotions / spam folder)</p> </div>`;
 }

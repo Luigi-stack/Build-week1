@@ -10,7 +10,7 @@ body {
   background-position: center center;
   background-attachment: fixed;
   color: white;
-  font-family: "Outfit", sans-serif;
+  font-family: "Inter", sans-serif;
 }
 
 header {
@@ -76,7 +76,7 @@ label #mark {
   top: -1em;
 }
 
-label input:checked + #mark {
+label input:checked+#mark {
   left: 20px;
   top: 1;
   width: 8px;
@@ -124,14 +124,23 @@ footer {
 }
 
 /*inizio la question page*/
+
+.questionContainer {
+  width: 100%;
+  text-align: center;
+  justify-content: center;
+}
+
 .questions {
   text-align: center;
   margin: 3em;
 }
+
 .timerRound p {
   font-size: 7px;
   line-height: 0;
 }
+
 .timerRound {
   display: inline-block;
   text-align: center;
@@ -140,6 +149,7 @@ footer {
   padding: 10px 20px;
   border-radius: 50%;
 }
+
 .timerRound span {
   font-size: 30px;
   font-weight: normal;
@@ -151,6 +161,7 @@ footer {
   margin-bottom: 1em;
   font-size: 60px;
 }
+
 .answer {
   color: white;
   border: transparent;
@@ -164,12 +175,15 @@ footer {
   -o-box-shadow: 0px -2px 0px 1px white;
   box-shadow: 0px -2px 0px 1px white;
 }
+
 .answer:hover {
   background-color: #900080;
 }
+
 .totalList {
   color: #d20094;
 }
+
 .questionNumber {
   text-align: center;
 }
@@ -211,8 +225,8 @@ footer {
 
 .star:hover,
 .star.selected,
-.star:hover ~ .star,
-.star.selected ~ .star {
+.star:hover~.star,
+.star.selected~.star {
   transition: color 0.4s ease;
   color: #00ffff;
 }
@@ -234,6 +248,7 @@ footer {
 #feed:focus {
   outline: none;
 }
+
 #questionHeader {
   position: relative;
   display: inline-block;
@@ -311,6 +326,7 @@ footer {
   text-align: center;
   margin-top: 0;
   bottom: 7em;
+  /*quizz*/
 }
 
 #question {
@@ -350,12 +366,10 @@ footer {
 
 .choice:hover {
   cursor: pointer;
-  background: linear-gradient(
-    180deg,
-    rgb(206, 6, 183) 0%,
-    35%,
-    rgb(135, 2, 115) 100%
-  );
+  background: linear-gradient(180deg,
+      rgb(206, 6, 183) 0%,
+      35%,
+      rgb(135, 2, 115) 100%);
   transform: scale(1.02);
   transform: transform 100ms;
 }
@@ -367,6 +381,7 @@ footer {
   font-size: 14px;
   position: relative;
   bottom: 4em;
+  /*quizz*/
 }
 
 #pink {
@@ -391,6 +406,87 @@ footer {
   width: 80%;
   margin: auto;
 }
-.marqueeContain{
 
+
+/* pagina risultato con grafico */
+
+.results03 {
+  text-align: center;
+}
+
+.graphic {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  text-align: center;
+}
+
+#feedpage {
+  background-color: #4caf4f00;
+  border: 2px solid white;
+  color: white;
+  padding: 15px 60px;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+#mainResults {
+  margin-bottom: 70px;
+}
+
+#inside_canvas {
+  width: 50%;
+  font-size: 13px;
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#container-result { /*ho usato flexbox*/
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+#leftDiv, #centralDiv, #rightDiv {
+  width: 30%;
+}
+
+#divHeader{
+  margin-bottom: 50px;
+}
+
+.titleResult, .firstP, .rateBold {
+  margin: 0 auto;
+}
+
+.rateBold, .firstP {
+  font-size: 40px;
+}
+
+.titleResult, .rateBold {
+  font-weight: 700;
+}
+
+.p1{
+  font-weight: bold;
+  margin-bottom: 0;
+  font-size: 20px;
+}
+
+.p2wrong, .p2correct{
+  color: #00ffff;
+  margin-top: 0;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.summary {
+  font-size: 30px;
+  margin-top: 0;
 }
