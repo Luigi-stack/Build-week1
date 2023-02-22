@@ -1,29 +1,122 @@
+// Array Dati
 
-const FULL_DASH_ARRAY = 283;
-const WARNING_THRESHOLD = 10;
-const ALERT_THRESHOLD = 5;
+const questions = [{
+    category: "Science: Computers",
+    type: "multiple",
+    difficulty: "easy",
+    question: "What does CPU stand for?",
+    correct_answer: "Central Processing Unit",
+    incorrect_answers: [
+        "Central Process Unit",
+        "Computer Personal Unit",
+        "Central Processor Unit",
+    ],
+},
+{
+    category: "Science: Computers",
+    type: "multiple",
+    difficulty: "easy",
+    question: "In the programming language Java, which of these keywords would you put on a variable to make sure it doesn't get modified?",
+    correct_answer: "Final",
+    incorrect_answers: ["Static", "Private", "Public"],
+},
+{
+    category: "Science: Computers",
+    type: "boolean",
+    difficulty: "easy",
+    question: "The logo for Snapchat is a Bell.",
+    correct_answer: "False",
+    incorrect_answers: ["True"],
+},
+{
+    category: "Science: Computers",
+    type: "boolean",
+    difficulty: "easy",
+    question: "Pointers were not used in the original C programming language; they were added later on in C++.",
+    correct_answer: "False",
+    incorrect_answers: ["True"],
+},
+{
+    category: "Science: Computers",
+    type: "multiple",
+    difficulty: "easy",
+    question: "What is the most preferred image format used for logos in the Wikimedia database?",
+    correct_answer: ".svg",
+    incorrect_answers: [".png", ".jpeg", ".gif"],
+},
+{
+    category: "Science: Computers",
+    type: "multiple",
+    difficulty: "easy",
+    question: "In web design, what does CSS stand for?",
+    correct_answer: "Cascading Style Sheet",
+    incorrect_answers: [
+        "Counter Strike: Source",
+        "Corrective Style Sheet",
+        "Computer Style Sheet",
+    ],
+},
+{
+    category: "Science: Computers",
+    type: "multiple",
+    difficulty: "easy",
+    question: "What is the code name for the mobile operating system Android 7.0?",
+    correct_answer: "Nougat",
+    incorrect_answers: ["Ice Cream Sandwich", "Jelly Bean", "Marshmallow"],
+},
+{
+    category: "Science: Computers",
+    type: "multiple",
+    difficulty: "easy",
+    question: "On Twitter, what is the character limit for a Tweet?",
+    correct_answer: "140",
+    incorrect_answers: ["120", "160", "100"],
+},
+{
+    category: "Science: Computers",
+    type: "boolean",
+    difficulty: "easy",
+    question: "Linux was first created as an alternative to Windows XP.",
+    correct_answer: "False",
+    incorrect_answers: ["True"],
+},
+{
+    category: "Science: Computers",
+    type: "multiple",
+    difficulty: "easy",
+    question: "Which programming language shares its name with an island in Indonesia?",
+    correct_answer: "Java",
+    incorrect_answers: ["Python", "C", "Jakarta"],
+},
+];
 
-const COLOR_CODES = {
+
+// Timer Funzione - Trasformazione e Animazione
+
+const circleAnimation = 280; // ANIMAZIONE TIMER (Modificando il valore aumenta la velocità del cerchio)
+
+const colorSvg = { // Codice colore SVG
     info: {
-        color: "green",
+        color: "color",  // Da modificare in CSS con ID timeRemaing .color
     },
 };
 
-const TIME_LIMIT = 20;
-let timePassed = 0;
-let timeLeft = TIME_LIMIT;
-let timerInterval = null;
-let remainingPathColor = COLOR_CODES.info.color;
+const timeLimit = 31;  // Tempo limite per la risposta
+let timePassed = 0; // Scadenza del timer 
+let timeLeft = timeLimit; // Tempo Rimanente
+let remainingPathColor = colorSvg.info.color; // Codice colore SVG
 
-document.getElementById("app").innerHTML = `
+
+// Importo Svg Timer
+document.getElementById("quizContainer").innerHTML = ` 
 <div class="base-timer">
   <svg class="base-timer__svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
     <g class="base-timer__circle">
       <circle class="base-timer__path-elapsed" cx="50" cy="50" r="45"></circle>
       <path
-        id="base-timer-path-remaining"
+        id="timeRemaining"
         stroke-dasharray="283"
-        class="base-timer__path-remaining ${remainingPathColor}"
+        class="timeRemaining ${remainingPathColor}"
         d="
           M 50, 50
           m -45, 0
@@ -33,229 +126,115 @@ document.getElementById("app").innerHTML = `
       > </path>
     </g>
   </svg>
-  <span id="base-timer-label" class="base-timer__label">${formatTime(
+  <span id="labelTimer" class="labelTimer">${formatTime(
     timeLeft
-  )}</span>
+)}</span>
 </div>
 `;
 startTimer();
 
-function resetTimer() {
-    timeLeft = TIME_LIMIT;
+function resetTimer() { // Funzione di reset 
+    timeLeft = timeLimit;
     timePassed = 0;
     clearInterval(timerInterval);
     startTimer();
 }
 
-function startTimer() {
+function startTimer() { // Start del timer 
     timerInterval = setInterval(() => {
         timePassed = timePassed += 1;
-        timeLeft = TIME_LIMIT - timePassed;
-        document.getElementById("base-timer-label").innerHTML =
-            formatTime(timeLeft);
-        setCircleDasharray();
-        setRemainingPathColor(timeLeft);
-
+        timeLeft = timeLimit - timePassed;
+        document.getElementById("labelTimer").innerHTML =  formatTime(timeLeft);    // Aggiorna l'elemento HTML con l'ID "labelTimer" con il tempo rimanente 
+        setCircle();
         if (timeLeft === 0) {
             resetTimer();
         }
-    }, 1000);
+    }, 1000); // Ogni secondo aggiorno il timer
 }
 
 function formatTime(time) {
-    const minutes = Math.floor(time / 60);
+    const minutes = Math.floor(time / 60); // Calcola il numero di minuti arrotondando per difetto
     let seconds = time % 60;
-
-    if (seconds < 10) {
-        seconds = `0${seconds}`;
+      if (seconds < 10) {
+        seconds = `0${seconds}`; // Se i secondi sono inferiori a 10, aggiungi uno 0 all'inizio
     }
-
-    return `${seconds}`;
+    return `${seconds}`;   // Restituisci la rappresentazione dei secondi in formato "Secondi"
 }
 
-function setRemainingPathColor(timeLeft) {
-    const { alert, warning, info } = COLOR_CODES;
-    if (timeLeft <= alert.threshold) {
-        document
-            .getElementById("base-timer-path-remaining")
-            .classList.remove(warning.color);
-        document
-            .getElementById("base-timer-path-remaining")
-            .classList.add(alert.color);
-    } else if (timeLeft <= warning.threshold) {
-        document
-            .getElementById("base-timer-path-remaining")
-            .classList.remove(info.color);
-        document
-            .getElementById("base-timer-path-remaining")
-            .classList.add(warning.color);
-    }
+
+
+function timeAnimation() {
+    const rawTimeFraction = timeLeft / timeLimit;  // Calcola la frazione di tempo rimanente rispetto al tempo limite
+    return rawTimeFraction - (1 / timeLimit) * (1 - rawTimeFraction); // Applica una trasformazione per creare un'animazione di avanzamento 
 }
 
-function calculateTimeFraction() {
-    const rawTimeFraction = timeLeft / TIME_LIMIT;
-    return rawTimeFraction - (1 / TIME_LIMIT) * (1 - rawTimeFraction);
+function setCircle() {
+    // Calcola la frazione di tempo trascorso rispetto al tempo limite
+    const circle = `${(timeAnimation() * circleAnimation ).toFixed(0)} 280`;
+    document.getElementById("timeRemaining").setAttribute("stroke-dasharray", circle);
+      // Imposta l'attributo stroke-dasharray dell'elemento SVG che rappresenta la barra di avanzamento del timer
 }
 
-function setCircleDasharray() {
-    const circleDasharray = `${(
-    calculateTimeFraction() * FULL_DASH_ARRAY
-  ).toFixed(0)} 283`;
-    document
-        .getElementById("base-timer-path-remaining")
-        .setAttribute("stroke-dasharray", circleDasharray);
-}
 
-window.onload = function() {};
+// Conteggio e Analisi delle domande 
 
-//quiz
-const questions = [{
-        category: "Science: Computers",
-        type: "multiple",
-        difficulty: "easy",
-        question: "What does CPU stand for?",
-        correct_answer: "Central Processing Unit",
-        incorrect_answers: [
-            "Central Process Unit",
-            "Computer Personal Unit",
-            "Central Processor Unit",
-        ],
-    },
-    {
-        category: "Science: Computers",
-        type: "multiple",
-        difficulty: "easy",
-        question: "In the programming language Java, which of these keywords would you put on a variable to make sure it doesn't get modified?",
-        correct_answer: "Final",
-        incorrect_answers: ["Static", "Private", "Public"],
-    },
-    {
-        category: "Science: Computers",
-        type: "boolean",
-        difficulty: "easy",
-        question: "The logo for Snapchat is a Bell.",
-        correct_answer: "False",
-        incorrect_answers: ["True"],
-    },
-    {
-        category: "Science: Computers",
-        type: "boolean",
-        difficulty: "easy",
-        question: "Pointers were not used in the original C programming language; they were added later on in C++.",
-        correct_answer: "False",
-        incorrect_answers: ["True"],
-    },
-    {
-        category: "Science: Computers",
-        type: "multiple",
-        difficulty: "easy",
-        question: "What is the most preferred image format used for logos in the Wikimedia database?",
-        correct_answer: ".svg",
-        incorrect_answers: [".png", ".jpeg", ".gif"],
-    },
-    {
-        category: "Science: Computers",
-        type: "multiple",
-        difficulty: "easy",
-        question: "In web design, what does CSS stand for?",
-        correct_answer: "Cascading Style Sheet",
-        incorrect_answers: [
-            "Counter Strike: Source",
-            "Corrective Style Sheet",
-            "Computer Style Sheet",
-        ],
-    },
-    {
-        category: "Science: Computers",
-        type: "multiple",
-        difficulty: "easy",
-        question: "What is the code name for the mobile operating system Android 7.0?",
-        correct_answer: "Nougat",
-        incorrect_answers: ["Ice Cream Sandwich", "Jelly Bean", "Marshmallow"],
-    },
-    {
-        category: "Science: Computers",
-        type: "multiple",
-        difficulty: "easy",
-        question: "On Twitter, what is the character limit for a Tweet?",
-        correct_answer: "140",
-        incorrect_answers: ["120", "160", "100"],
-    },
-    {
-        category: "Science: Computers",
-        type: "boolean",
-        difficulty: "easy",
-        question: "Linux was first created as an alternative to Windows XP.",
-        correct_answer: "False",
-        incorrect_answers: ["True"],
-    },
-    {
-        category: "Science: Computers",
-        type: "multiple",
-        difficulty: "easy",
-        question: "Which programming language shares its name with an island in Indonesia?",
-        correct_answer: "Java",
-        incorrect_answers: ["Python", "C", "Jakarta"],
-    },
-];
-
-let currentQuestion = 0;
-let questionCounter = 1;
-let score = 0;
+let Question = 0; // Variabile Conteggio Domande
+let questionCounter = 1; // Variabile Conteggio +1
+let result = 0; // Variabile Risultato
 
 function showQuestion() {
+    // Aggiorna il numero della domanda nella pagina
     counter.innerText = `${questionCounter}`;
-    // recupera la domanda corrente
-    const question = questions[currentQuestion];
 
-    // mostra la domanda
+    // Array Domande [Question]
+    const question = questions[Question];
     document.querySelector("#question").innerHTML = question.question;
 
-    // mostra le risposte
+    // Ciclo for per creare button in base alle domande
     let answersHTML = "";
     for (const answer of question.incorrect_answers) {
         answersHTML += `<button class="choice">${answer}</button>`;
     }
     answersHTML += `<button class="choice">${question.correct_answer}</button>`;
+
+    // Inserisce la stringa HTML dei bottoni delle risposte nella pagina
     document.querySelector("#answers").innerHTML = answersHTML;
 
-    // imposta il timer di 20 secondi
+    
     timer = setTimeout(() => {
-        // passa alla domanda successiva
-        currentQuestion++;
-
-        if (currentQuestion < questions.length) {
+         // Incrementa la variabile [Question]e controlla se ci sono altre domande da mostrare
+        Question++;
+        if (Question < questions.length) {
+            // Se ci sono altre domande, mostra la prossima domanda e incrementa la variabile [questionCounter]
             showQuestion();
             questionCounter++;
             counter.innerText = `${questionCounter}`;
-        } else {
-            return window.location.assign(`../../Results03.html?result=${score}`);
+        } else {  // Se non ci sono altre domande, reindirizza alla pagina dei risultati
+            return window.location.assign(`../../results.html?result=${result}`); // Vai alla pagina result + indica il numero del risultato nel link
         }
-    }, 20000);
+    }, 30000);
     resetTimer();
 }
 
 document.querySelector("#answers").addEventListener("click", (event) => {
-    // verifica se l'utente ha selezionato la risposta corretta
-    if (event.target.innerHTML === questions[currentQuestion].correct_answer) {
-        score += 1;
+    // Verifica risposta
+    if (event.target.innerHTML === questions[Question].correct_answer) {
+        result += 1;
     }
+     //Domanda successiva
+    Question++;
 
-    // passa alla domanda successiva
-    currentQuestion++;
-
-    // cancella il timer quando l'utente seleziona una risposta
+    //Reset Timer alla risposta
     clearTimeout(timer);
 
-    if (currentQuestion < questions.length) {
+    if (Question < questions.length) { // IF Continua con le domande Else Vai a risultati 
         showQuestion();
         questionCounter++;
         counter.innerText = `${questionCounter}`;
     } else {
-        return window.location.assign(`../../Results03.html?result=${score}`);
+        return window.location.assign(`../../results.html?result=${result}`); // Vai alla pagina result + indica il numero del risultato nel link
     }
-    return score;
+    return result;
 });
 showQuestion()
 
-// mostra la prima domanda

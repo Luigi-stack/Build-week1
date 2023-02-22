@@ -271,8 +271,8 @@ footer {
   font-size: 12px;
 }
 
-#app {
-  margin-top: 60px;
+#quizContainer {
+  margin-top: 35px;
 }
 
 .base-timer {
@@ -295,7 +295,7 @@ footer {
   stroke: transparent;
 }
 
-.base-timer__path-remaining {
+.timeRemaining {
   stroke-width: 7px;
   stroke-linecap: round;
   transform: rotate(90deg);
@@ -305,11 +305,11 @@ footer {
   stroke: currentColor;
 }
 
-.base-timer__path-remaining.green {
+.timeRemaining.color {
   color: #00ffff;
 }
 
-.base-timer__label {
+.labelTimer {
   position: absolute;
   width: 100px;
   height: 100px;
@@ -325,7 +325,6 @@ footer {
   text-align: center;
   margin-top: 0;
   bottom: 7em;
-  /*quizz*/
 }
 
 #question {
@@ -337,7 +336,7 @@ footer {
   padding-right: 8%;
 }
 
-#choices-box {
+#box {
   padding-left: 2%;
   padding-right: 4%;
   padding-bottom: 2%;
@@ -373,14 +372,14 @@ footer {
   transform: transform 100ms;
 }
 
-#footer-quiz {
+#footerQuiz {
   text-align: center;
   letter-spacing: 2px;
   font-weight: bold;
   font-size: 14px;
   position: relative;
   bottom: 4em;
-  /*quizz*/
+
 }
 
 #pink {
