@@ -10,7 +10,7 @@ body {
   background-position: center center;
   background-attachment: fixed;
   color: white;
-  font-family: "Outfit", sans-serif;
+  font-family: "Inter", sans-serif;
 }
 
 header {
@@ -76,7 +76,7 @@ label #mark {
   top: -1em;
 }
 
-label input:checked + #mark {
+label input:checked+#mark {
   left: 20px;
   top: 1;
   width: 8px;
@@ -124,14 +124,23 @@ footer {
 }
 
 /*inizio la question page*/
+
+.questionContainer {
+  width: 100%;
+  text-align: center;
+  justify-content: center;
+}
+
 .questions {
   text-align: center;
   margin: 3em;
 }
+
 .timerRound p {
   font-size: 7px;
   line-height: 0;
 }
+
 .timerRound {
   display: inline-block;
   text-align: center;
@@ -140,6 +149,7 @@ footer {
   padding: 10px 20px;
   border-radius: 50%;
 }
+
 .timerRound span {
   font-size: 30px;
   font-weight: normal;
@@ -151,6 +161,7 @@ footer {
   margin-bottom: 1em;
   font-size: 60px;
 }
+
 .answer {
   color: white;
   border: transparent;
@@ -164,12 +175,15 @@ footer {
   -o-box-shadow: 0px -2px 0px 1px white;
   box-shadow: 0px -2px 0px 1px white;
 }
+
 .answer:hover {
   background-color: #900080;
 }
+
 .totalList {
   color: #d20094;
 }
+
 .questionNumber {
   text-align: center;
 }
@@ -211,8 +225,8 @@ footer {
 
 .star:hover,
 .star.selected,
-.star:hover ~ .star,
-.star.selected ~ .star {
+.star:hover~.star,
+.star.selected~.star {
   transition: color 0.4s ease;
   color: #00ffff;
 }
@@ -234,6 +248,7 @@ footer {
 #feed:focus {
   outline: none;
 }
+
 #questionHeader {
   position: relative;
   display: inline-block;
@@ -311,6 +326,7 @@ footer {
   text-align: center;
   margin-top: 0;
   bottom: 7em;
+  /*quizz*/
 }
 
 #question {
@@ -350,12 +366,10 @@ footer {
 
 .choice:hover {
   cursor: pointer;
-  background: linear-gradient(
-    180deg,
-    rgb(206, 6, 183) 0%,
-    35%,
-    rgb(135, 2, 115) 100%
-  );
+  background: linear-gradient(180deg,
+      rgb(206, 6, 183) 0%,
+      35%,
+      rgb(135, 2, 115) 100%);
   transform: scale(1.02);
   transform: transform 100ms;
 }
@@ -367,8 +381,10 @@ footer {
   font-size: 14px;
   position: relative;
   bottom: 4em;
+  /*quizz*/
 }
 
 #pink {
   color: #c2128d;
 }
+
