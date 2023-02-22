@@ -388,3 +388,85 @@ footer {
   color: #c2128d;
 }
 
+/* pagina risultato con grafico */
+
+.results03 {
+  text-align: center;
+}
+
+.graphic {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  text-align: center;
+}
+
+#feedpage {
+  background-color: #4caf4f00;
+  border: 2px solid white;
+  color: white;
+  padding: 15px 60px;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+#mainResults {
+  margin-bottom: 70px;
+}
+
+#inside_canvas {
+  width: 50%;
+  font-size: 8px;
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#container-result { /*ho usato flexbox*/
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+#leftDiv, #centralDiv, #rightDiv {
+  width: 30%;
+}
+
+#divHeader{
+  margin-bottom: 50px;
+}
+
+.titleResult, .firstP, .rateBold {
+  margin: 0 auto;
+}
+
+.rateBold, .firstP {
+  font-size: 40px;
+}
+
+.titleResult, .rateBold {
+  font-weight: 700;
+}
+
+.p1{
+  font-weight: bold;
+  margin-bottom: 0;
+  font-size: 20px;
+}
+
+.p2wrong, .p2correct{
+  color: #00ffff;
+  margin-top: 0;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.summary {
+  font-size: 30px;
+  margin-top: 0;
+}
