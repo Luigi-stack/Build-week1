@@ -75,7 +75,7 @@ label #mark {
   top: -1em;
 }
 
-label input:checked+#mark {
+label input:checked + #mark {
   left: 20px;
   top: 1;
   width: 8px;
@@ -224,8 +224,8 @@ footer {
 
 .star:hover,
 .star.selected,
-.star:hover~.star,
-.star.selected~.star {
+.star:hover ~ .star,
+.star.selected ~ .star {
   transition: color 0.4s ease;
   color: #00ffff;
 }
@@ -364,10 +364,12 @@ footer {
 
 .choice:hover {
   cursor: pointer;
-  background: linear-gradient(180deg,
-      rgb(206, 6, 183) 0%,
-      35%,
-      rgb(135, 2, 115) 100%);
+  background: linear-gradient(
+    180deg,
+    rgb(206, 6, 183) 0%,
+    35%,
+    rgb(135, 2, 115) 100%
+  );
   transform: scale(1.02);
   transform: transform 100ms;
 }
@@ -379,7 +381,6 @@ footer {
   font-size: 14px;
   position: relative;
   bottom: 4em;
-
 }
 
 #pink {
@@ -424,40 +425,48 @@ footer {
   transform: translate(-50%, -50%);
 }
 
-#container-result { /*ho usato flexbox*/
+#container-result {
+  /*ho usato flexbox*/
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
 }
 
-#leftDiv, #centralDiv, #rightDiv {
+#leftDiv,
+#centralDiv,
+#rightDiv {
   width: 30%;
 }
 
-#divHeader{
+#divHeader {
   margin-bottom: 50px;
 }
 
-.titleResult, .firstP, .rateBold {
+.titleResult,
+.firstP,
+.rateBold {
   margin: 0 auto;
 }
 
-.rateBold, .firstP {
+.rateBold,
+.firstP {
   font-size: 40px;
 }
 
-.titleResult, .rateBold {
+.titleResult,
+.rateBold {
   font-weight: 700;
 }
 
-.p1{
+.p1 {
   font-weight: bold;
   margin-bottom: 0;
   font-size: 20px;
 }
 
-.p2wrong, .p2correct{
+.p2wrong,
+.p2correct {
   color: #00ffff;
   margin-top: 0;
   font-weight: bold;
