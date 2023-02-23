@@ -98,7 +98,7 @@ const questions = [
 
 // Timer Funzione - Trasformazione e Animazione
 
-const circleAnimation = 280; // ANIMAZIONE TIMER (Modificando il valore aumenta la velocità del cerchio)
+const circleAnimation = 290; // ANIMAZIONE TIMER (Modificando il valore aumenta la velocità del cerchio)
 
 const colorSvg = {
   // Codice colore SVG
@@ -107,7 +107,7 @@ const colorSvg = {
   },
 };
 
-const timeLimit = 31; // Tempo limite per la risposta
+const timeLimit = 15; // Tempo limite per la risposta
 let timePassed = 0; // Scadenza del timer
 let timeLeft = timeLimit; // Tempo Rimanente
 let remainingPathColor = colorSvg.info.color; // Codice colore SVG
@@ -173,7 +173,7 @@ function timeAnimation() {
 
 function setCircle() {
   // Calcola la frazione di tempo trascorso rispetto al tempo limite
-  const circle = `${(timeAnimation() * circleAnimation).toFixed(0)} 280`;
+  const circle = `${(timeAnimation() * circleAnimation).toFixed(0)} 290`;
   document
     .getElementById("timeRemaining")
     .setAttribute("stroke-dasharray", circle);
@@ -216,7 +216,7 @@ function showQuestion() {
       // Se non ci sono altre domande, reindirizza alla pagina dei risultati
       return window.location.assign(`../../results.html?result=${result}`); // Vai alla pagina result + indica il numero del risultato nel link
     }
-  }, 30000);
+  }, 15300);
   resetTimer();
 }
 

@@ -1,15 +1,14 @@
-let url = window.location.search;
-
-const parametro = new URLSearchParams(url);
-
-const score = parametro.get("result");
+let url = window.location.search; // Recupera i parametri dalla stringa dell'Url
+const parametro = new URLSearchParams(url); // Estrae il valore del parametro "result"
+const score = parametro.get("result"); // E lo salva nella variabile
 
 window.onload = function () {};
 
-let numeroSuccessi = score;
+let numeroSuccessi = score; //Variabile risposte corrette 
+let numeroTotale = 10; // Sul numero di domande totali
 
-let numeroTotale = 10;
 
+// Imposto valori per mostrare il numero di risposte corrette e il numero di risposte errate
 document.getElementById(
   "numAnswersCorrect"
 ).innerHTML = `<p>${numeroSuccessi}/${numeroTotale} questions</p>`;
@@ -19,12 +18,17 @@ document.getElementById(
   "numAnswersWrong"
 ).innerHTML = `<p>${numeroFallimenti}/${numeroTotale} questions</p>`;
 
+
+// Calcola la percentuale di successo e di fallimento del Quiz
 let percentualeSuccesso = (numeroSuccessi / numeroTotale) * 100;
 document.getElementById("success-rate").innerHTML = percentualeSuccesso + "%";
 
 let percentualeFallimento = 100 - percentualeSuccesso;
 document.getElementById("failure-rate").innerHTML = percentualeFallimento + "%";
 
+
+
+// Imposta i dati del grafico
 window.onload = function () {};
 
 var data = {
@@ -51,6 +55,8 @@ var data = {
   ],
 };
 
+
+// Disegno Grafico Doughnut con libreria Chart.js
 var ctx = document.getElementById("pieChart").getContext("2d");
 ctx.canvas.width = 350;
 ctx.canvas.height = 350;
@@ -78,6 +84,9 @@ var pieChart = new Chart(ctx, {
   },
 });
 
+
+
+// Imposta un messaggio di successo o di fallimento in base al numero di risposte corrette
 window.onload = function () {};
 
 if (numeroSuccessi > 5) {
