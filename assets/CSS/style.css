@@ -356,11 +356,9 @@ footer {
 
 #inside_canvas {
   width: 50%;
-  font-size: 8px;
-  position: absolute;
-  top: 45%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+    font-size: 15px;
+    position: absolute;
+    top: 15%;
 }
 
 #container-result {
