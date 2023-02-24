@@ -61,8 +61,8 @@ label {
 
 label #mark {
   display: inline-block;
-  width: 20px;
-  height: 20px;
+  width: 15px;
+  height: 15px;
   background-color: rgba(0, 0, 0, 0);
   border: 2px solid white;
   position: absolute;
@@ -116,6 +116,10 @@ span {
 footer {
   list-style-position: inside;
   padding-left: 0;
+}
+
+ul {
+  line-height: 2em;
 }
 
 /*--------------------------------------------------------------timer--------------------------------------------------------------*/
@@ -373,6 +377,10 @@ footer {
 #centralDiv,
 #rightDiv {
   width: 30%;
+}
+
+#rightDiv {
+  color: rgb(209, 199, 199);
 }
 
 #divHeader {

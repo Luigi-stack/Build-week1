@@ -214,7 +214,7 @@ function showQuestion() {
       counter.innerText = `${questionCounter}`;
     } else {
       // Se non ci sono altre domande, reindirizza alla pagina dei risultati
-      return window.location.assign(`../../results.html?result=${result}`); // Vai alla pagina result + indica il numero del risultato nel link
+      return window.location.assign(`../../results.html?result=${result}`); // NB Vai alla pagina result + indica il numero del risultato nel link
     }
   }, 15300);
   resetTimer();
